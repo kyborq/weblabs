@@ -1,43 +1,31 @@
-// Handling the Enter key
+// handling the Enter key
 document.querySelector('#search').addEventListener('keydown', function(e) {
   if (e.keyCode === 13) {
     startSearch();
   }
 });
 
-// Start search function
+// start search function
 function startSearch() {
-  // Get search object
-  searchField = document.getElementById('search');
+  // search field
+  searchField = document.getElementById('search').value; // search text
 
-  // Get card object
-  var card = document.getElementsByClassName('column');
-  // Get card content array
-  var cardContents = document.getElementsByClassName('content');
-  // Get card count
-  var cardsCount = cardContents.length;
+  // cards
+  var cardContent = document.getElementsByClassName('content'); // card content array
+  var cardsCount = cardContent.length; // get card count
 
-  // If search field is not empty
-  if (searchField.value !== '') {
-    // Run through the array of cards
-    for (var i = 0; i < cardsCount; i++) {
-      var cardText = cardContents[i].innerText.toLowerCase();
-      var searchFieldText = searchField.value.toLowerCase();
-      // And compare search field text with card content text
-      if (cardText.indexOf(searchFieldText) >= 0) {
-        // If result more or equals 0 -> show the desired card
-        card[i].style.display = 'block';
+  for (var i = 0; i < cardsCount; i++) {
+    var cardText = cardContent[i].innerText.toLowerCase();
+    var searchField = searchField.toLowerCase();
+
+    if (searchField !== '') {
+      if (cardText.indexOf(searchField) >= 0) {
+        document.getElementsByClassName('column')[i].style.display = 'block'; // card object
       } else {
-        // Or else -> hide unuseful card
-        card[i].style.display = 'none';
+        document.getElementsByClassName('column')[i].style.display = 'none'; // card object
       }
-    }
-    searchField.value = '';
-  } else {
-    // If search button clicked and search field is empty
-    // Run through the array of cards and show all card
-    for (var i = 0; i < cardsCount; i++) {
-      card[i].style.display = 'block';
+    } else {
+      document.getElementsByClassName('column')[i].style.display = 'block'; // card object
     }
   }
 }
