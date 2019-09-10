@@ -7,7 +7,6 @@ document.querySelector('#search').addEventListener('keydown', function(e) {
 
 // start search function
 function startSearch() {
-  // search field
   searchField = document.getElementById('search').value; // search text
 
   // cards
@@ -18,6 +17,7 @@ function startSearch() {
     var cardText = cardContent[i].innerText.toLowerCase();
     var searchField = searchField.toLowerCase();
 
+    // search
     if (searchField !== '') {
       if (cardText.indexOf(searchField) >= 0) {
         document.getElementsByClassName('column')[i].style.display = 'block'; // card object
