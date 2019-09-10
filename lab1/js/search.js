@@ -1,3 +1,10 @@
+// Handling the Enter key
+document.querySelector('#search').addEventListener('keydown', function(e) {
+  if (e.keyCode === 13) {
+    startSearch();
+  }
+});
+
 // Start search function
 function startSearch() {
   // Get search object
@@ -14,8 +21,10 @@ function startSearch() {
   if (searchField.value !== '') {
     // Run through the array of cards
     for (var i = 0; i < cardsCount; i++) {
+      var cardText = cardContents[i].innerText.toLowerCase();
+      var searchFieldText = searchField.value.toLowerCase();
       // And compare search field text with card content text
-      if (cardContents[i].innerText.indexOf(searchField.value) >= 0) {
+      if (cardText.indexOf(searchFieldText) >= 0) {
         // If result more or equals 0 -> show the desired card
         card[i].style.display = 'block';
       } else {
@@ -23,6 +32,7 @@ function startSearch() {
         card[i].style.display = 'none';
       }
     }
+    searchField.value = '';
   } else {
     // If search button clicked and search field is empty
     // Run through the array of cards and show all card
