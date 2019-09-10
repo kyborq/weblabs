@@ -4,9 +4,9 @@ function startSearch() {
   searchField = document.getElementById('search');
 
   // Get card object
-  var card = document.getElementsByClassName('column')
+  var card = document.getElementsByClassName('column');
   // Get card content array
-  var cardContents = document.getElementsByClassName('content')
+  var cardContents = document.getElementsByClassName('content');
   // Get card count
   var cardsCount = cardContents.length;
 
