@@ -29,3 +29,6 @@ function startSearch() {
     }
   }
 }
+
+// TODO:
+// - make highlithghtghting for search result
