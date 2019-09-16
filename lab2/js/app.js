@@ -1,39 +1,47 @@
-$(document).ready(function () {
-  var btn = $('#btn');
-  // btn.prop("disabled", true);
-  var textarea = $('#textarea');
+var ready = (callback) => {
+  if (document.readyState != "loading") callback();
+  else document.addEventListener("DOMContentLoaded", callback);
+}
 
-  btn.click(function () {
+ready(() => {
+  var btn = document.querySelector('#btn');
+  var textarea = document.querySelector('#textarea');
+
+  document.querySelector('#btn').addEventListener('click', (e) => {
     addTask();
-    textarea.val('');
+    textarea.value = '';
   });
 
   function addTask() {
-    var taskContent = textarea.val();
-    var containerToDo = $('#container-to-do');
-    var newTask = $('<div>');
-    newTask.addClass('new');
-    newTask.addClass('checkbox');
-    containerToDo.append(newTask);
-    var label = $('<label>');
-    var check = $('<input>');
-    check.attr('type', 'checkbox');
-    label.append(check);
+    var taskContent = textarea.value;
+    var containerToDo = document.querySelector('#container-to-do');
+    // var newTask = document.querySelector('div');
+    var newTask = document.createElement('div');
+    newTask.classList.add('new');
+    newTask.classList.add('checkbox');
+    containerToDo.appendChild(newTask);
+    var label = document.createElement('label');
+    var check = document.createElement('input');
+    check.setAttribute('type', 'checkbox');
+    label.appendChild(check);
+    label.classList.add("not-labeled");
     newTask.append(label);
-    var text = $(document.createTextNode(taskContent));
-    label.append(text);
-    var icon = $('<i>');
-    icon.addClass('glyphicon glyphicon-trash icon');
-    newTask.append(icon);
+    var text = document.createTextNode(taskContent);
+    label.appendChild(text);
+    var icon = document.createElement('i');
+    icon.classList.add('glyphicon');
+    icon.classList.add('glyphicon-trash');
+    icon.classList.add('icon');
+    newTask.appendChild(icon);
 
-    textarea.val('')
+    textarea.value = '';
 
     check.click(function () {
       labeledTask();
     });
 
     function labeledTask() {
-      label.toggleClass('labeled');
+      label.classList.replace("not-labeled", "labeled");
     }
   }
 });
