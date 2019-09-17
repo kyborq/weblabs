@@ -31,8 +31,10 @@ window.onload = function () {
     };
 
     // TODO: delete task event
-    icon.onclick = function () {
-      console.log('delete');
+    icon.onclick = function (event) {
+      // console.log('delete');
+      // console.log(event.currentTarget.parentElement);
+      event.currentTarget.parentElement.remove();
     };
   };
 
