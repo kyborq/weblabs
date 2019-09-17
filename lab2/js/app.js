@@ -1,9 +1,9 @@
-window.onload = function () {
+window.onload = function() {
   var btn = document.getElementById('button');
   var txtArea = document.getElementById('textarea');
 
   // add task handler
-  btn.onclick = function () {
+  btn.onclick = function() {
     // add element to UI
     var taskContent = txtArea.value;
     var containerToDo = document.getElementById('container-to-do');
@@ -17,31 +17,35 @@ window.onload = function () {
     newTask.append(label);
     var text = document.createTextNode(taskContent);
     label.append(text);
+    label.classList.add('task-label');
     var icon = document.createElement('i');
     icon.classList.add('glyphicon', 'glyphicon-trash', 'icon', 'remove-card');
     newTask.append(icon);
-    txtArea.value = "";
+    txtArea.value = '';
 
     // register events here:
 
     // complete task
-    check.onclick = function () {
+    check.onclick = function() {
       label.classList.toggle('completed');
+      check.toggle;
     };
 
     // delete task event
-    icon.onclick = function (event) {
+    icon.onclick = function(event) {
       event.currentTarget.parentElement.remove();
     };
   };
 
   // TODO: complete all handler here
-  /*
-    var completeAll = document.getElementById('complete-all');
-    completeAll.onclick = function () {
-      console.log('complete all');
-    };
-  */
+  var completeAll = document.getElementById('complete-all');
+  completeAll.onclick = function() {
+    var task = document.getElementsByClassName('new');
+    for (var i = 0; i < task.length; i++) {
+      task[i].children[0].classList.toggle('completed');
+    }
+  };
+
 
 
   // TODO: filter tasks
