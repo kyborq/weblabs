@@ -25,15 +25,12 @@ window.onload = function () {
     // register events here:
 
     // complete task
-    // TODO: labeled - not valid name for CSS and context
     check.onclick = function () {
-      label.classList.toggle('labeled');
+      label.classList.toggle('completed');
     };
 
-    // TODO: delete task event
+    // delete task event
     icon.onclick = function (event) {
-      // console.log('delete');
-      // console.log(event.currentTarget.parentElement);
       event.currentTarget.parentElement.remove();
     };
   };
