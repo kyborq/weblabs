@@ -13,6 +13,7 @@ window.onload = function() {
     var label = document.createElement('label');
     var check = document.createElement('input');
     check.setAttribute('type', 'checkbox');
+    check.classList.add('task-checkbox');
     label.append(check);
     newTask.append(label);
     var text = document.createTextNode(taskContent);
@@ -28,7 +29,6 @@ window.onload = function() {
     // complete task
     check.onclick = function() {
       label.classList.toggle('completed');
-      check.toggle;
     };
 
     // delete task event
@@ -41,8 +41,20 @@ window.onload = function() {
   var completeAll = document.getElementById('complete-all');
   completeAll.onclick = function() {
     var task = document.getElementsByClassName('new');
+    var taskCheckbox = document.getElementsByClassName('task-checkbox');
+    var taskLabel = document.getElementsByClassName('task-label');
     for (var i = 0; i < task.length; i++) {
-      task[i].children[0].classList.toggle('completed');
+      if (taskCheckbox[i].checked) {
+        if (!completeAll.checked) {
+          taskCheckbox[i].checked = false;
+          taskLabel[i].classList.toggle('completed');
+        }
+      } else {
+        if (completeAll.checked) {
+          taskCheckbox[i].checked = true;
+          taskLabel[i].classList.toggle('completed');
+        }
+      }
     }
   };
 
