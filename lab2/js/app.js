@@ -44,7 +44,8 @@ window.onload = function() {
 
     for (let task of task_list) {
       // console.log(task.innerText);
-      task.children[0].classList.toggle('completed');
+      let task_label = task.children[0];
+      task_label.classList.toggle('completed');
     }
   };
 
