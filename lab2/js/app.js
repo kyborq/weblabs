@@ -29,11 +29,14 @@ window.onload = function() {
     // complete task
     check.onclick = function() {
       label.classList.toggle('completed');
+      label.parentElement.classList.toggle('completed');
     };
 
     // delete task event
     icon.onclick = function(event) {
-      event.currentTarget.parentElement.remove();
+      // event.currentTarget.parentElement.remove();
+      // event.currentTarget.parentElement.style.display = 'none';
+      event.currentTarget.parentElement.classList.add('deleted');
     };
   };
 
@@ -63,7 +66,6 @@ window.onload = function() {
 
       task_check.onclick = function(e) {
         completeAll.checked = false;
-        console.log(e.target.parentElement);
 
         if (e.target.parentElement.classList.contains('completed')) {
           e.target.parentElement.classList.remove('completed');
@@ -72,8 +74,6 @@ window.onload = function() {
           e.target.parentElement.classList.add('completed');
           e.target.parentElement.parentElement.classList.add('completed');
         }
-        // task_label.classList.remove('completed');
-        // task.classList.remove('completed');
       };
     }
   };
@@ -81,20 +81,40 @@ window.onload = function() {
 
 
   // TODO: filter tasks
-  /*
-    var filterShowAll = document.getElementById('filter-show-all');
-    filterShowAll.onclick = function () {
-      console.log('show all');
-    };
+  var filterShowAll = document.getElementById('filter-show-all');
+  filterShowAll.onclick = function() {
+    var task_list = document.querySelectorAll('.new');
 
-    var filterShowCompleted = document.getElementById('filter-show-completed');
-    filterShowCompleted.onclick = function () {
-      console.log('show completed');
-    };
+    for (let task of task_list) {
+      task.style.display = 'block';
+    }
+  };
 
-    var filterShowCompleted = document.getElementById('filter-show-removed');
-    filterShowRemoved.onclick = function () {
-      console.log('show removed');
-    };
-  */
+  var filterShowCompleted = document.getElementById('filter-show-completed');
+  filterShowCompleted.onclick = function() {
+    var task_list = document.querySelectorAll('.new');
+
+    for (let task of task_list) {
+      if (task.classList.contains('completed')) {
+        task.style.display = 'block';
+      } else {
+        task.style.display = 'none';
+      }
+    }
+  };
+
+  var filterShowRemoved = document.getElementById('filter-show-removed');
+  filterShowRemoved.onclick = function() {
+    var task_list = document.querySelectorAll('.new');
+
+    for (let task of task_list) {
+      if (task.classList.contains('deleted')) {
+        task.classList.remove('deleted');
+        // task.style.display = 'block';
+      } else {
+        task.classList.add('deleted');
+        // task.style.display = 'none';
+      }
+    }
+  };
 }

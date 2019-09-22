@@ -49,3 +49,12 @@ input {
 	right: 10px;
 	top: 40%;
 }
+
+.option-buttons {
+	float: left;
+	margin-right: 8px;
+}
+
+.deleted {
+	display: none;
+}

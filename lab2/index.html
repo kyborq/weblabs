@@ -19,7 +19,25 @@
           <input class="form-control" id="textarea" placeholder="New task text">
           <button id="button" type="submit" class="btn btn-primary">Add</button>
           <div class="options-box">
-            <input type="checkbox" id="complete-all">
+            <label for="complete-all">
+              <input type="checkbox" id="complete-all" class="option-buttons">
+              <span>Завершить все задачи</span>
+            </label>
+
+            <label for="filter-show-all">
+              <input type="radio" id="filter-show-all" name="filter" class="option-buttons" checked>
+              Показать все
+            </label>
+
+            <label for="filter-show-completed">
+              <input type="radio" id="filter-show-completed" name="filter" class="option-buttons">
+              Показать выполненные
+            </label>
+
+            <label for="filter-show-removed">
+              <input type="radio" id="filter-show-removed" name="filter" class="option-buttons">
+              Показать удаленные
+            </label>
           </div>
           <div id="container-to-do"></div>
         </div>
