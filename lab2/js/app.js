@@ -37,15 +37,44 @@ window.onload = function() {
     };
   };
 
-  // TODO: complete all handler here
+  // complete all
   var completeAll = document.getElementById('complete-all');
   completeAll.onclick = function() {
     var task_list = document.querySelectorAll('.new');
 
     for (let task of task_list) {
       // console.log(task.innerText);
+      if (completeAll.checked) {
+        task.classList.add('completed');
+      } else {
+        task.classList.remove('completed');
+      }
+
       let task_label = task.children[0];
-      task_label.classList.toggle('completed');
+      let task_check = task_label.children[0];
+
+      if (task.classList.contains('completed')) {
+        task_label.classList.add('completed');
+        task_check.checked = true;
+      } else {
+        task_label.classList.remove('completed');
+        task_check.checked = false;
+      }
+
+      task_check.onclick = function(e) {
+        completeAll.checked = false;
+        console.log(e.target.parentElement);
+
+        if (e.target.parentElement.classList.contains('completed')) {
+          e.target.parentElement.classList.remove('completed');
+          e.target.parentElement.parentElement.classList.remove('completed');
+        } else {
+          e.target.parentElement.classList.add('completed');
+          e.target.parentElement.parentElement.classList.add('completed');
+        }
+        // task_label.classList.remove('completed');
+        // task.classList.remove('completed');
+      };
     }
   };
 
