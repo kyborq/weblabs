@@ -43,10 +43,12 @@ window.onload = function() {
 
     for (let task of taskList) {
       // console.log(task.innerText);
-      if (completeAll.checked) {
-        task.classList.add('completed');
-      } else {
-        task.classList.remove('completed');
+      if (!task.classList.contains('deleted')) {
+        if (completeAll.checked) {
+          task.classList.add('completed');
+        } else {
+          task.classList.remove('completed');
+        }
       }
 
       let taskLabel = task.children[0];
@@ -84,9 +86,9 @@ window.onload = function() {
     for (let task of taskList) {
       if (task.classList.contains('deleted')) {
         task.style.display = 'none';
-      } else {
-        task.style.display = 'block';
       }
+
+      task.style.display = '';
     }
   }
 };
@@ -96,8 +98,11 @@ filterShowCompleted.onclick = function() {
   var taskList = document.querySelectorAll('.new');
 
   for (let task of taskList) {
+
     if (task.classList.contains('completed')) {
-      task.style.display = 'block';
+      if (!task.classList.contains('deleted')) {
+        task.style.display = 'block';
+      }
     } else {
       task.style.display = 'none';
     }
@@ -111,6 +116,7 @@ filterShowRemoved.onclick = function() {
   for (let task of taskList) {
     if (task.classList.contains('deleted')) {
       task.style.display = 'block';
+      task.classList.remove('completed');
     } else {
       task.style.display = 'none';
     }
