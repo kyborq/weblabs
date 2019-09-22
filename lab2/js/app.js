@@ -4,7 +4,7 @@ window.onload = function() {
 
   // add task handler
   btn.onclick = function() {
-    // add element to UI
+    // add new task
     var taskContent = txtArea.value;
     var containerToDo = document.getElementById('container-to-do');
     var newTask = document.createElement('div');
@@ -13,18 +13,14 @@ window.onload = function() {
     var label = document.createElement('label');
     var check = document.createElement('input');
     check.setAttribute('type', 'checkbox');
-    check.classList.add('task-checkbox');
     label.append(check);
     newTask.append(label);
     var text = document.createTextNode(taskContent);
     label.append(text);
-    label.classList.add('task-label');
     var icon = document.createElement('i');
     icon.classList.add('glyphicon', 'glyphicon-trash', 'icon', 'remove-card');
     newTask.append(icon);
     txtArea.value = '';
-
-    // register events here:
 
     // complete task
     check.onclick = function() {
@@ -43,9 +39,9 @@ window.onload = function() {
   // complete all
   var completeAll = document.getElementById('complete-all');
   completeAll.onclick = function() {
-    var task_list = document.querySelectorAll('.new');
+    var taskList = document.querySelectorAll('.new');
 
-    for (let task of task_list) {
+    for (let task of taskList) {
       // console.log(task.innerText);
       if (completeAll.checked) {
         task.classList.add('completed');
@@ -53,18 +49,18 @@ window.onload = function() {
         task.classList.remove('completed');
       }
 
-      let task_label = task.children[0];
-      let task_check = task_label.children[0];
+      let taskLabel = task.children[0];
+      let taskCheck = taskLabel.children[0];
 
       if (task.classList.contains('completed')) {
-        task_label.classList.add('completed');
-        task_check.checked = true;
+        taskLabel.classList.add('completed');
+        taskCheck.checked = true;
       } else {
-        task_label.classList.remove('completed');
-        task_check.checked = false;
+        taskLabel.classList.remove('completed');
+        taskCheck.checked = false;
       }
 
-      task_check.onclick = function(e) {
+      taskCheck.onclick = function(e) {
         completeAll.checked = false;
 
         if (e.target.parentElement.classList.contains('completed')) {
@@ -83,38 +79,40 @@ window.onload = function() {
   // TODO: filter tasks
   var filterShowAll = document.getElementById('filter-show-all');
   filterShowAll.onclick = function() {
-    var task_list = document.querySelectorAll('.new');
+    var taskList = document.querySelectorAll('.new');
 
-    for (let task of task_list) {
-      task.style.display = 'block';
-    }
-  };
-
-  var filterShowCompleted = document.getElementById('filter-show-completed');
-  filterShowCompleted.onclick = function() {
-    var task_list = document.querySelectorAll('.new');
-
-    for (let task of task_list) {
-      if (task.classList.contains('completed')) {
-        task.style.display = 'block';
-      } else {
-        task.style.display = 'none';
-      }
-    }
-  };
-
-  var filterShowRemoved = document.getElementById('filter-show-removed');
-  filterShowRemoved.onclick = function() {
-    var task_list = document.querySelectorAll('.new');
-
-    for (let task of task_list) {
+    for (let task of taskList) {
       if (task.classList.contains('deleted')) {
-        task.classList.remove('deleted');
-        // task.style.display = 'block';
+        task.style.display = 'none';
       } else {
-        task.classList.add('deleted');
-        // task.style.display = 'none';
+        task.style.display = 'block';
       }
     }
-  };
-}
+  }
+};
+
+var filterShowCompleted = document.getElementById('filter-show-completed');
+filterShowCompleted.onclick = function() {
+  var taskList = document.querySelectorAll('.new');
+
+  for (let task of taskList) {
+    if (task.classList.contains('completed')) {
+      task.style.display = 'block';
+    } else {
+      task.style.display = 'none';
+    }
+  }
+};
+
+var filterShowRemoved = document.getElementById('filter-show-removed');
+filterShowRemoved.onclick = function() {
+  var taskList = document.querySelectorAll('.new');
+
+  for (let task of taskList) {
+    if (task.classList.contains('deleted')) {
+      task.style.display = 'block';
+    } else {
+      task.style.display = 'none';
+    }
+  }
+};
