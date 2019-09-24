@@ -4,7 +4,7 @@ window.onload = function() {
 
   // add task handler
   btn.onclick = function() {
-    // add new task
+    // add element to UI
     var taskContent = txtArea.value;
     var containerToDo = document.getElementById('container-to-do');
     var newTask = document.createElement('div');
@@ -18,10 +18,13 @@ window.onload = function() {
     newTask.append(label);
     var text = document.createTextNode(taskContent);
     label.append(text);
+    label.classList.add('task-label');
     var icon = document.createElement('i');
     icon.classList.add('glyphicon', 'glyphicon-trash', 'icon', 'remove-card');
     newTask.append(icon);
     txtArea.value = '';
+
+    // register events here:
 
     // complete task
     check.onclick = function() {
@@ -46,9 +49,9 @@ window.onload = function() {
   // complete all
   var completeAll = document.getElementById('complete-all');
   completeAll.onclick = function() {
-    var taskList = document.querySelectorAll('.new');
+    var task_list = document.querySelectorAll('.new');
 
-    for (let task of taskList) {
+    for (let task of task_list) {
       // console.log(task.innerText);
       if (!task.classList.contains('deleted')) {
         if (completeAll.checked) {
@@ -58,18 +61,18 @@ window.onload = function() {
         }
       }
 
-      let taskLabel = task.children[0];
-      let taskCheck = taskLabel.children[0];
+      let task_label = task.children[0];
+      let task_check = task_label.children[0];
 
       if (task.classList.contains('completed')) {
-        taskLabel.classList.add('completed');
-        taskCheck.checked = true;
+        task_label.classList.add('completed');
+        task_check.checked = true;
       } else {
-        taskLabel.classList.remove('completed');
-        taskCheck.checked = false;
+        task_label.classList.remove('completed');
+        task_check.checked = false;
       }
 
-      taskCheck.onclick = function(e) {
+      task_check.onclick = function(e) {
         completeAll.checked = false;
 
         if (e.target.parentElement.classList.contains('completed')) {
@@ -88,7 +91,7 @@ window.onload = function() {
   // TODO: filter tasks
   var filterShowAll = document.getElementById('filter-show-all');
   filterShowAll.onclick = function() {
-    var taskList = document.querySelectorAll('.new');
+    var task_list = document.querySelectorAll('.new');
 
     for (let task of task_list) {
       if (!task.classList.contains('deleted')) {
@@ -97,12 +100,11 @@ window.onload = function() {
         task.style.display = 'none';
       }
     }
-  }
-};
+  };
 
-var filterShowCompleted = document.getElementById('filter-show-completed');
-filterShowCompleted.onclick = function() {
-  var taskList = document.querySelectorAll('.new');
+  var filterShowCompleted = document.getElementById('filter-show-completed');
+  filterShowCompleted.onclick = function() {
+    var task_list = document.querySelectorAll('.new');
 
     for (let task of task_list) {
       if (!task.classList.contains('deleted')) {
@@ -115,15 +117,12 @@ filterShowCompleted.onclick = function() {
 
         task.style.display = 'none';
       }
-    } else {
-      task.style.display = 'none';
     }
-  }
-};
+  };
 
-var filterShowRemoved = document.getElementById('filter-show-removed');
-filterShowRemoved.onclick = function() {
-  var taskList = document.querySelectorAll('.new');
+  var filterShowRemoved = document.getElementById('filter-show-removed');
+  filterShowRemoved.onclick = function() {
+    var task_list = document.querySelectorAll('.new');
 
     for (let task of task_list) {
       if (task.classList.contains('deleted')) {
@@ -134,5 +133,5 @@ filterShowRemoved.onclick = function() {
         task.style.display = 'none';
       }
     }
-  }
-};
+  };
+}
