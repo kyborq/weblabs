@@ -90,21 +90,12 @@ window.onload = function() {
   filterShowAll.onclick = function() {
     var taskList = document.querySelectorAll('.new');
 
-<<<<<<< HEAD
     for (let task of task_list) {
       if (!task.classList.contains('deleted')) {
         task.style.display = 'block';
       } else {
         task.style.display = 'none';
       }
-=======
-    for (let task of taskList) {
-      if (task.classList.contains('deleted')) {
-        task.style.display = 'none';
-      }
-
-      task.style.display = '';
->>>>>>> 23a2c9383f19f932b4d706a206983359f3a03d25
     }
   }
 };
@@ -113,7 +104,6 @@ var filterShowCompleted = document.getElementById('filter-show-completed');
 filterShowCompleted.onclick = function() {
   var taskList = document.querySelectorAll('.new');
 
-<<<<<<< HEAD
     for (let task of task_list) {
       if (!task.classList.contains('deleted')) {
         if (task.classList.contains('completed')) {
@@ -124,13 +114,6 @@ filterShowCompleted.onclick = function() {
       } else {
 
         task.style.display = 'none';
-=======
-  for (let task of taskList) {
-
-    if (task.classList.contains('completed')) {
-      if (!task.classList.contains('deleted')) {
-        task.style.display = 'block';
->>>>>>> 23a2c9383f19f932b4d706a206983359f3a03d25
       }
     } else {
       task.style.display = 'none';
@@ -142,7 +125,6 @@ var filterShowRemoved = document.getElementById('filter-show-removed');
 filterShowRemoved.onclick = function() {
   var taskList = document.querySelectorAll('.new');
 
-<<<<<<< HEAD
     for (let task of task_list) {
       if (task.classList.contains('deleted')) {
         // task.classList.remove('deleted');
@@ -151,14 +133,6 @@ filterShowRemoved.onclick = function() {
         // task.classList.add('deleted');
         task.style.display = 'none';
       }
-=======
-  for (let task of taskList) {
-    if (task.classList.contains('deleted')) {
-      task.style.display = 'block';
-      task.classList.remove('completed');
-    } else {
-      task.style.display = 'none';
->>>>>>> 23a2c9383f19f932b4d706a206983359f3a03d25
     }
   }
 };
