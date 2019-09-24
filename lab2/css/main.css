@@ -33,6 +33,7 @@ input {
 .options-box {
 	margin-top: 15px;
 	padding: 15px 40px 0 15px;
+	overflow: hidden;
 }
 
 #container-to-do {
@@ -50,11 +51,21 @@ input {
 	top: 40%;
 }
 
-.option-buttons {
+.option-button {
 	float: left;
-	margin-right: 8px;
+	margin-right: 16px;
+}
+
+.option-button input {
+	margin-right: 4px;
+	float: left;
 }
 
 .deleted {
 	display: none;
+}
+
+.option-section {
+	float: left;
+	margin-right: 16px;
 }

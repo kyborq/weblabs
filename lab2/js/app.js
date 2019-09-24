@@ -8,12 +8,12 @@ window.onload = function() {
     var taskContent = txtArea.value;
     var containerToDo = document.getElementById('container-to-do');
     var newTask = document.createElement('div');
-    newTask.classList.add('new', 'checkbox');
+    newTask.classList.add('new', 'checkbox', 'view');
     containerToDo.append(newTask);
     var label = document.createElement('label');
     var check = document.createElement('input');
     check.setAttribute('type', 'checkbox');
-    check.classList.add('task-checkbox');
+    check.classList.add('task-checkbox', 'toggle');
     label.append(check);
     newTask.append(label);
     var text = document.createTextNode(taskContent);
@@ -28,8 +28,14 @@ window.onload = function() {
 
     // complete task
     check.onclick = function() {
-      label.classList.toggle('completed');
-      label.parentElement.classList.toggle('completed');
+      if (!label.parentElement.classList.contains('deleted')) {
+        label.classList.toggle('completed');
+        label.parentElement.classList.toggle('completed');
+      } else {
+        label.classList.remove('completed');
+        label.parentElement.classList.remove('completed');
+        label.children[0].checked = false;
+      }
     };
 
     // delete task event
@@ -47,10 +53,12 @@ window.onload = function() {
 
     for (let task of task_list) {
       // console.log(task.innerText);
-      if (completeAll.checked) {
-        task.classList.add('completed');
-      } else {
-        task.classList.remove('completed');
+      if (!task.classList.contains('deleted')) {
+        if (completeAll.checked) {
+          task.classList.add('completed');
+        } else {
+          task.classList.remove('completed');
+        }
       }
 
       let task_label = task.children[0];
@@ -86,7 +94,11 @@ window.onload = function() {
     var task_list = document.querySelectorAll('.new');
 
     for (let task of task_list) {
-      task.style.display = 'block';
+      if (!task.classList.contains('deleted')) {
+        task.style.display = 'block';
+      } else {
+        task.style.display = 'none';
+      }
     }
   };
 
@@ -95,9 +107,14 @@ window.onload = function() {
     var task_list = document.querySelectorAll('.new');
 
     for (let task of task_list) {
-      if (task.classList.contains('completed')) {
-        task.style.display = 'block';
+      if (!task.classList.contains('deleted')) {
+        if (task.classList.contains('completed')) {
+          task.style.display = 'block';
+        } else {
+          task.style.display = 'none';
+        }
       } else {
+
         task.style.display = 'none';
       }
     }
@@ -109,11 +126,11 @@ window.onload = function() {
 
     for (let task of task_list) {
       if (task.classList.contains('deleted')) {
-        task.classList.remove('deleted');
-        // task.style.display = 'block';
+        // task.classList.remove('deleted');
+        task.style.display = 'block';
       } else {
-        task.classList.add('deleted');
-        // task.style.display = 'none';
+        // task.classList.add('deleted');
+        task.style.display = 'none';
       }
     }
   };

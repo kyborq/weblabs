@@ -6,40 +6,46 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="vendors/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <!-- <link rel="stylesheet" type="text/css" href="vendors/bootstrap/css/bootstrap.css"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
+  <link rel="stylesheet" type="text/css" href="css/new.css">
 </head>
 
 <body>
-  <section class="app">
+  <section class="todoapp">
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
           <h1>TODO APP</h1>
-          <input class="form-control" id="textarea" placeholder="New task text">
+          <input class="new-todo" id="textarea" placeholder="New task text">
           <button id="button" type="submit" class="btn btn-primary">Add</button>
           <div class="options-box">
-            <label for="complete-all">
-              <input type="checkbox" id="complete-all" class="option-buttons">
-              <span>Завершить все задачи</span>
-            </label>
+            <div class="option-section">
+              <label for="complete-all" class="option-button">
+                <input type="checkbox" id="complete-all">
+                <span>Завершить все задачи</span>
+              </label>
+            </div>
 
-            <label for="filter-show-all">
-              <input type="radio" id="filter-show-all" name="filter" class="option-buttons" checked>
-              Показать все
-            </label>
 
-            <label for="filter-show-completed">
-              <input type="radio" id="filter-show-completed" name="filter" class="option-buttons">
-              Показать выполненные
-            </label>
+            <div class="option-section">
+              <label for="filter-show-all" class="option-button">
+                <input type="radio" id="filter-show-all" name="filter" checked>
+                Показать все
+              </label>
 
-            <label for="filter-show-removed">
-              <input type="radio" id="filter-show-removed" name="filter" class="option-buttons">
-              Показать удаленные
-            </label>
+              <label for="filter-show-completed" class="option-button">
+                <input type="radio" id="filter-show-completed" name="filter">
+                Показать выполненные
+              </label>
+
+              <label for="filter-show-removed" class="option-button">
+                <input type="radio" id="filter-show-removed" name="filter">
+                Показать удаленные
+              </label>
+            </div>
           </div>
-          <div id="container-to-do"></div>
+          <div id="container-to-do" class="todo-list"></div>
         </div>
       </div>
     </div>
