@@ -20,6 +20,7 @@ window.onload = function() {
     label.append(text);
     label.classList.add('task-label');
     var icon = document.createElement('i');
+    icon.append('X');
     icon.classList.add('glyphicon', 'glyphicon-trash', 'icon', 'remove-card');
     newTask.append(icon);
     txtArea.value = '';
@@ -41,7 +42,9 @@ window.onload = function() {
     // delete task event
     icon.onclick = function(event) {
       // event.currentTarget.parentElement.remove();
-      // event.currentTarget.parentElement.style.display = 'none';
+      if (!event.currentTarget.parentElement.classList.contains('deleted')) {
+        event.currentTarget.parentElement.style.display = 'none';
+      }
       event.currentTarget.parentElement.classList.add('deleted');
     };
   };
