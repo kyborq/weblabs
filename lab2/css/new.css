@@ -40,9 +40,9 @@ body {
   /* margin-bottom: 16px; */
 }
 
-.filter-section {
+.option-section.filter-section {
   border-bottom: 1px solid #f2f2f2;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 :focus {
@@ -207,6 +207,20 @@ body {
   margin-left: -54px;
 }
 
+.toggle.filter-btn {
+	display: none;
+}
+
+.option-button .filter-btn:checked {
+	display: block;
+	/* text-decoration: underline; */
+}
+
+.filter-section .filter-btn:checked {
+	/* border-bottom: 1px solid black; */
+
+}
+
  .toggle {
 	/* opacity: 0; */
 }
@@ -217,6 +231,9 @@ body {
 }
 
 .option-section {
+	border-bottom: 1px solid #f2f2f2;
+	padding-bottom: 16px;
+	margin-bottom: 48px;
   overflow: hidden;
 }
 
