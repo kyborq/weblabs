@@ -1,0 +1,42 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 16px;
+}
+
+table {
+  width: 100%;
+  height: calc(100vh - 90px);
+  border-collapse: collapse;
+}
+
+th {
+  height: 16px;
+  padding: 8px;
+  text-align: right;
+}
+
+td {
+  padding: 8px;
+  text-align: right;
+  border: 1px solid #f2f2f2;
+  vertical-align: top;
+}
+
+.calendar-header {
+  font-size: 48px;
+}
+
+.calendar-month {
+  font-weight: bold;
+}
+
+.calendar-year {
+}
+
+.header {
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.unactive-day {
+  color: lightgray;
+}
