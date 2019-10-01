@@ -67,13 +67,20 @@ body {
   border-radius: 4px;
   color: white;
   text-align: left;
-  margin-top: 8px;
+  margin-top: 32px;
+}
+
+.day {
+  padding: 8px;
+  display: block;
+  float: right;
+  min-width: 16px;
+  height: 16px;
 }
 
 .today {
-  padding: 4px;
   background: #E67373;
-  border-radius: 4px;
+  border-radius: 100%;
   color: white;
 }
 
