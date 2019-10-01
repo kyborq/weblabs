@@ -1,89 +1,99 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Calendar</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-  </head>
 
-  <body>
-    <div class="calendar-app">
-      <div class="calendar-header">
-        <span class="calendar-month">October</span> <span class="calendar-year">2019</span>
-      </div>
+<head>
+  <title>Calendar</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+</head>
 
-      <table>
-        <tr class="header">
-          <th>Пн</th>
-          <th>Вт</th>
-          <th>Ср</th>
-          <th>Чт</th>
-          <th>Пт</th>
-          <th>Сб</th>
-          <th>Вс</th>
-        </tr>
+<body>
+  <div id="calendar-app">
+    <div class="calendar-top">
+      <span class="month">July</span> <span class="year">2019</span>
 
-        <tr>
-          <td class="unactive-day">30</td>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td>4</td>
-          <td>5</td>
-          <td>6</td>
-        </tr>
-
-        <tr>
-          <td>7</td>
-          <td>8</td>
-          <td>9</td>
-          <td>10</td>
-          <td>11</td>
-          <td>12</td>
-          <td>13</td>
-        </tr>
-
-        <tr>
-          <td>14</td>
-          <td>15</td>
-          <td>16</td>
-          <td>17</td>
-          <td>18</td>
-          <td>19</td>
-          <td>20</td>
-        </tr>
-
-        <tr>
-          <td>21</td>
-          <td>22</td>
-          <td>23</td>
-          <td>24</td>
-          <td>25</td>
-          <td>26</td>
-          <td>27</td>
-        </tr>
-
-        <tr>
-          <td>28</td>
-          <td>29</td>
-          <td>30</td>
-          <td>31</td>
-          <td class="unactive-day">1</td>
-          <td class="unactive-day">2</td>
-          <td class="unactive-day">3</td>
-        </tr>
-
-        <tr>
-          <td class="unactive-day">4</td>
-          <td class="unactive-day">5</td>
-          <td class="unactive-day">6</td>
-          <td class="unactive-day">7</td>
-          <td class="unactive-day">8</td>
-          <td class="unactive-day">9</td>
-          <td class="unactive-day">10</td>
-        </tr>
-      </table>
+      <label class="theme-switch" for="night-mode">
+        <input class="form-button" type="checkbox" id="night-mode">
+        <span class="checkmark">Темная тема</span>
+      </label>
     </div>
-  </body>
+
+    <table class="calendar">
+      <tr class="calendar-week">
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+        <th>Sun</th>
+      </tr>
+
+      <tr>
+        <td>1 Jul</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td class="vacation">6</td>
+        <td class="vacation">7</td>
+      </tr>
+
+      <tr>
+        <td>8</td>
+        <td>9</td>
+        <td><span class="today">10</span></td>
+        <td>11</td>
+        <td>12</td>
+        <td class="vacation">13</td>
+        <td class="vacation">14<div class="holiday">День российской почты</div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>15</td>
+        <td>16</td>
+        <td>17</td>
+        <td>18</td>
+        <td>19</td>
+        <td class="vacation">20</td>
+        <td class="vacation">21</td>
+      </tr>
+
+      <tr>
+        <td>22</td>
+        <td>23</td>
+        <td>24</td>
+        <td>25</td>
+        <td>26</td>
+        <td class="vacation">27</td>
+        <td class="vacation">28</td>
+      </tr>
+
+      <tr>
+        <td>29</td>
+        <td>30</td>
+        <td>31</td>
+        <td class="other-month">1 Aug</td>
+        <td class="other-month">2</td>
+        <td class="other-month vacation">3</td>
+        <td class="other-month vacation">4</td>
+      </tr>
+
+      <tr>
+        <td class="other-month">4</td>
+        <td class="other-month">5</td>
+        <td class="other-month">6</td>
+        <td class="other-month">7</td>
+        <td class="other-month">8</td>
+        <td class="other-month vacation">9</td>
+        <td class="other-month vacation">10</td>
+      </tr>
+    </table> -->
+  </div>
+
+  <script src="js/calendar.js"></script>
+</body>
+
 </html>
