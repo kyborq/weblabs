@@ -8,69 +8,37 @@
   </head>
 
   <body>
-    <div class="top">
-      <div class="header">
+    <header class="top">
+      <div class="header-container">
         <span class="logo">eSHOP</span>
 
-        <div class="navigation">
+        <nav class="header-nav">
           <span class="nav-button"><img src="img/shopping_cart.svg" alt=""></span>
-        </div>
+        </nav>
       </div>
-    </div>
+    </header>
 
-    <div class="page">
-      <div class="sidebar">
-        <div class="category active">Category 1</div>
-        <div class="category">Category 2</div>
-        <div class="category">Category 3</div>
-        <div class="category">Category 4</div>
-        <div class="category">Category #</div>
-      </div>
+    <main class="page">
+      <nav class="sidebar-nav">
+        <div class="nav-button active">Category 1</div>
+        <div class="nav-button">Category 2</div>
+        <div class="nav-button">Category 3</div>
+        <div class="nav-button">Category 4</div>
+        <div class="nav-button">Category #</div>
+      </nav>
 
-      <div class="flex-container">
-        <div class="flex-card">
-          <img class="card-image" src="img/product1.jpg" alt="">
+      <section class="product-grid">
+        <article class="product-card">
+          <img class="product-image" src="img/product1.jpg" alt="">
           <span class="product-name">Губозакатывающая машинка</span>
           <span class="product-cost">1 125,99$</span>
-          <div class="card-button">
-            <img src="img/add_shopping_cart.svg" alt="">
-            <span class="button-label">В корзину</span>
-          </div>
-        </div>
 
-        <div class="flex-card">
-          <img class="card-image" src="img/product2.jpg" alt="">
-          <span class="product-name">Компьютерная клавиатура</span>
-          <span class="product-cost">300,15$</span>
           <div class="card-button">
             <img src="img/add_shopping_cart.svg" alt="">
             <span class="button-label">В корзину</span>
           </div>
-        </div>
-
-        <div class="flex-card">
-          <img class="card-image" src="img/product3.jpg" alt="">
-          <span class="product-name">Настольные часы</span>
-          <span class="product-cost">199,99$</span>
-          <div class="card-button">
-            <img src="img/add_shopping_cart.svg" alt="">
-            <span class="button-label">В корзину</span>
-          </div>
-        </div>
-
-        <div class="flex-card">
-          <img class="card-image" src="img/product4.jpg" alt="">
-          <span class="product-name">Планшет на Android</span>
-          <span class="product-cost">1 299,99$</span>
-          <div class="card-button">
-            <img src="img/add_shopping_cart.svg" alt="">
-            <span class="button-label">В корзину</span>
-          </div>
-        </div>
-      </div>
-    </div>
+        </article>
+      </section>
+    </main>
   </body>
 </html>
-
-<!-- TODO: Make html5 structure better -->
-<!-- TODO: Update semantic for html5 -->
