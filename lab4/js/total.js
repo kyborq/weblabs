@@ -1,15 +1,21 @@
 window.onload = function() {
   let rows = document.querySelectorAll('.dir-row');
+  let currentRow = 2;
 
-  for (let row of rows) {
-    row.onclick = function (event) {
-      // console.log(row.innerText);
-      console.log(event.target.parentElement.rowIndex);
-      if (event.target.parentElement.rowIndex === row.rowIndex) {
-        row.classList.add('selected');
-      } else {
-        row.classList.remove('selected');
+  for (var i = 0; i < rows.length; i++) {
+    rows[i].onclick = function(event) {
+      currentRow = event.target.parentElement.children[0].innerText;
+      console.log(currentRow, event.target.parentElement);
+
+      if (i == currentRow) {
+        rows[i].classList.toggle('selected');
       }
-    };
+    }
   }
+
+  // for (var i = 0; i < rows.length; i++) {
+  //   if (i == currentRow) {
+  //     rows[i].classList.toggle('selected');
+  //   }
+  // }
 }

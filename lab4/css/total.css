@@ -83,3 +83,7 @@ h1 {
 .item-type {
   color: #B1B3B5;
 }
+
+.index {
+  display: none;
+}
