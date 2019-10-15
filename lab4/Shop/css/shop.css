@@ -224,8 +224,8 @@ body {
 }
 
 .basket-icon {
-  width: 24px;
   height: 24px;
+  width: 24px;
   background-image: url('../img/shopping_cart.svg');
   background-position: center;
   background-repeat: no-repeat;
