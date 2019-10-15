@@ -48,7 +48,7 @@ body {
 }
 
 .header-nav .nav-button:active {
-  background: #EDF0F2;
+  background-color: #EDF0F2;
 }
 
 .page {
@@ -73,6 +73,8 @@ body {
   font-size: 14px;
   color: #898B8C;
   border-radius: 4px 0 0 4px;
+  display: block;
+  text-decoration: none;
 }
 
 .sidebar-nav .nav-button:hover {
@@ -127,14 +129,19 @@ body {
   margin-top: 8px;
   cursor: pointer;
   padding: 8px;
+  padding-left: 40px;
   font-size: 14px;
   overflow: hidden;
   border: 1px solid #EDF0F2;
   border-radius: 4px;
+  background-image: url('../img/add_shopping_cart.svg');
+  background-position-x: 8px;
+  background-position-y: center;
+  background-repeat: no-repeat;
 }
 
 .card-button:active {
-  background: #EDF0F2;
+  background-color: #EDF0F2;
 }
 
 .product-cost {
@@ -214,4 +221,12 @@ body {
   margin-top: 32px;
   font-size: 24px;
   color: #bfc5ca;
+}
+
+.basket-icon {
+  width: 24px;
+  height: 24px;
+  background-image: url('../img/shopping_cart.svg');
+  background-position: center;
+  background-repeat: no-repeat;
 }
