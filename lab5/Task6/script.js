@@ -1,7 +1,3 @@
-function replaceString(str, finding) {
-  console.log(finding.indexOf(str));
-
+function replaceString(str, sourceStr, replaceStr) {
   // ...
 }
-
-replaceString('llo', 'hello world');

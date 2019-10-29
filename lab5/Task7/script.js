@@ -1,3 +1,0 @@
-function replaceString(str, sourceStr, replaceStr) {
-  // ...
-}
