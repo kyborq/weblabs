@@ -1,30 +1,28 @@
 var cashbox = {
   amount: 0,
-  addPayment: function(payment) {
-    if (typeof payment === 'object') {
-      if (payment.amount > 0 && typeof payment.amount === 'number') {
-        this.amount = this.amount + payment.amount;
-        console.log('--- Платеж: "' + payment.info + '" успешно завершен!');
-        console.log('Текущий баланс: ' + this.amount + ' руб.');
-      } else {
-        console.log('--- ОШИБКА. Невозможно совершить платёж "' + payment.info + '"');
-      }
+  isValid: function(operation) {
+    if (typeof operation === 'object' && typeof operation.amount === 'number' && typeof operation.info === 'string') {
+      return true;
     } else {
-      console.log('Передан неправильный тип');
+      return false;
+    }
+  },
+  addPayment: function(payment) {
+    if (this.isValid(payment) && payment.amount > 0) {
+      this.amount = this.amount + payment.amount;
+      console.log('--- Платеж: "' + payment.info + '" успешно завершен!');
+      console.log('Текущий баланс: ' + this.amount + ' руб.');
+    } else {
+      console.log('ОШИБКА');
     }
   },
   refundPayment: function(refund) {
-    if (typeof refund === 'object' && typeof refund.amount === 'number') {
-      if (this.amount > 0 && this.amount - refund.amount >= 0) {
-        this.amount = this.amount - refund.amount;
-        console.log('--- Снятие со счета: "' + refund.info + '" ' + refund.amount + ' руб.');
-        console.log('Текущий баланс: ' + this.amount + ' руб.');
-      } else {
-        console.log('--- Недостаточно средств для списания со счёта ' + this.amount);
-        console.log('Текущий баланс: ' + this.amount + ' руб.');
-      }
+    if (this.isValid(refund) && this.amount > 0 && this.amount - refund.amount >= 0) {
+      this.amount = this.amount - refund.amount;
+      console.log('--- Снятие со счета: "' + refund.info + '" ' + refund.amount + ' руб.');
+      console.log('Текущий баланс: ' + this.amount + ' руб.');
     } else {
-      console.log('Передан неправильный тип');
+      console.log('ОШИБКА');
     }
   }
 };

@@ -1,16 +1,19 @@
 function pulloutArray(arr) {
   if (Array.isArray(arr)) {
     var resultArr = [];
+
     for (var i = 0; i < arr.length; i++) {
-      // if (isNaN(arr[i]) === false && arr[i] !== null) {
-      if (Array.isArray(arr[i]) && !isNaN(arr[i]) && arr[i] !== null) {
+      if (Array.isArray(arr[i])) {
         for (var j = 0; j < arr[i].length; j++) {
-          resultArr.push(arr[i][j]);
+          if (typeof arr[i][j] === 'number' && !isNaN(arr[i][j]) && arr[i][j] !== null) {
+            resultArr.push(arr[i][j]);
+          }
+          // console.log(arr[i][j]);
         }
-      } else if (!isNaN(arr[i]) && arr[i] !== null) {
+      } else if (typeof arr[i] === 'number' && !isNaN(arr[i]) && arr[i] !== null) {
         resultArr.push(arr[i]);
+        // console.log(arr[i]);
       }
-      // }
     }
   } else {
     return null;
