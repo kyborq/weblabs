@@ -1,21 +1,24 @@
 function check(data, expectedType) {
-  try {
-    if (expectedType === 'array' && Array(data).isArray()) {
-      console.log(true); // or throw new Error('ValidationError')
-    } else if (expectedType === 'number' && Array(data).isArray()) {
-      console.log(true); // or throw new Error('ValidationError')
-    } else if (expectedType === 'null' && !data) {
-      console.log(true); // or throw new Error('ValidationError')
-    } else if (expectedType === 'string' && typeof data == 'string') {
-      console.log(true); // or throw new Error('ValidationError')
-    }
-  } catch (err) {
-    console.log(false);
+  if (!data && data !== null) {
+    throw new Error('ExpectedData');
+  }
+
+  if (!expectedType) {
+    throw new Error('ExpectedType');
+  }
+
+  if (typeof data === expectedType || (data === null && expectedType === 'null')) {
+    return true;
+  } else {
+    throw new Error('ValidationError');
   }
 }
 
-check([], 'number'); // false or throw ValidationError
-check([], 'array'); // false or throw ValidationError
-
-check(null, 'null'); // true
-check('test', 'string'); // true
+try {
+  console.log(check([], 'number')); // false or throw ValidationError
+  console.log(check([], 'array')); // false or throw ValidationError
+  console.log(check(null, 'null')); // true
+  console.log(check('test', 'string')); // true
+} catch (error) {
+  console.log(error);
+}
