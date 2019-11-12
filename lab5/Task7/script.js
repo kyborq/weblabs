@@ -65,14 +65,18 @@ soldier2.spawn();
 setInterval(function() {
   if (soldier1.health > 0 && soldier2.health > 0) {
     soldier1.shot();
-    if (soldier1.shotCoordinates.x === soldier2.currentCoordinates.x && soldier1.shotCoordinates.y === soldier2.currentCoordinates.y) {
-      soldier2.hurt();
-    }
-
+    soldier2.hurt();
     soldier2.shot();
-    if (soldier2.shotCoordinates.x === soldier1.currentCoordinates.x && soldier2.shotCoordinates.y === soldier1.currentCoordinates.y) {
-      soldier1.hurt();
-    }
+    soldier1.hurt();
+
+    // if (soldier1.shotCoordinates.x === soldier2.currentCoordinates.x && soldier1.shotCoordinates.y === soldier2.currentCoordinates.y) {
+    //   soldier2.hurt();
+    // }
+
+    // soldier2.shot();
+    // if (soldier2.shotCoordinates.x === soldier1.currentCoordinates.x && soldier2.shotCoordinates.y === soldier1.currentCoordinates.y) {
+    //   soldier1.hurt();
+    // }
 
     if (soldier1.health <= 0) {
       console.log(soldier2.name + ' is winner!');
