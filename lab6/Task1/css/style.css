@@ -46,11 +46,27 @@ body {
   padding: 20px 25px;
 }
 
-.blog-info-picture {
-  text-align: center;
-}
-.blog-info-picture_image {
+.blog-info_image {
+  margin: auto;
+  display: block;
   width: 150px;
+}
+
+.blog-section_title {
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.blog-section_link {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 .social {
@@ -113,7 +129,7 @@ body {
 }
 
 @media (min-width: 992px) {
-  html {
+  .blog-section {
     font-size: 20px;
   }
   .container {
@@ -122,7 +138,7 @@ body {
 }
 
 @media (min-width: 1200px) {
-  html {
+  .blog-section {
     font-size: 22px;
   }
   .container {
