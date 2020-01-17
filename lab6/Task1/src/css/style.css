@@ -53,11 +53,11 @@ body {
   width: 150px;
 }
 
-.blog-info-social {
+.social {
   margin: 10px;
 }
 
-.blog-info-social_link {
+.social_link {
   text-decoration: none;
   font-size: 30px;
   text-align: center;
