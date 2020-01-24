@@ -11,13 +11,13 @@
       "quiet": true,
       "legacyWatch": true
     },
-    "validate-css": "src/css/style.css",
+    "validate-css": "src/",
     "jshint": "src/"
   },
   "scripts": {
     "server": "live-server src",
-    "validate-html": "html-validate src",
-    "validate-css": "css-validator src/css/style.css",
+    "validate-html": "html-validate src/",
+    "validate-css": "css-validator src/",
     "jshint": "jshint src/",
     "watch": "npm-watch",
     "dev-mode": "npm-run-all --parallel server watch",
