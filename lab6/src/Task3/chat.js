@@ -1,30 +1,44 @@
-window.onload = function() {
-  let sendButton = document.getElementById('message-send');
+function ChatUI() {
+  this.addMessage = function(messageText, messageSenderID) {
+    // TODO:
+    var chat = document.getElementById('chat-container');
+    var text = messageText;
 
-  sendButton.onclick = function() {
-    let chatSection = document.getElementById('chat-container');
+    if (text != '') {
+      var newMessage = document.createElement('div');
+      var newMessageContainer = document.createElement('div');
+      var newMessageAuthor = document.createElement('h3');
+      var newMessageText = document.createElement('p');
 
-    let messageText = document.getElementById('message-text');
-    if (messageText != '') {
-      let newMessageSection = document.createElement('div');
-      newMessageSection.classList.add('chat-section-message', 'chat-section-message--myself');
-
-      let newMessageContainer = document.createElement('div');
+      newMessage.classList.add('chat-section-message');
       newMessageContainer.classList.add('message-container');
+      newMessageAuthor.classList.add('message-container_author');
+      newMessageText.classList.add('message-container_text');
+      newMessageText.innerText = text;
 
-      let author = document.createElement('h3');
-      author.innerText = 'Вы';
-      author.classList.add('message-container_author');
-      let text = document.createElement('p');
-      text.classList.add('message-container_text', 'message-container_text--myself');
-      text.innerText = messageText.value;
+      if (messageSenderID === '1') {
+        newMessageAuthor.innerText = 'Вы';
+        newMessageText.classList.add('message-container_text--myself');
+        newMessage.classList.add('chat-section-message--myself');
+      } else {
+        newMessageAuthor.innerText = 'Собеседник';
+        newMessageText.classList.remove('message-container_text--myself');
+        newMessage.classList.remove('chat-section-message--myself');
+      }
 
-      newMessageContainer.append(author, text);
-      newMessageSection.append(newMessageContainer);
-
-      chatSection.append(newMessageSection);
-
-      messageText.value = '';
+      newMessageContainer.append(newMessageAuthor, newMessageText);
+      newMessage.append(newMessageContainer);
+      chat.append(newMessage);
     }
+  };
+}
+
+window.onload = function() {
+  chat = new ChatUI();
+
+  var sendButton = document.getElementById('message-send');
+  var text = document.getElementById('message-text').value;
+  sendButton.onclick = function() {
+    chat.addMessage(text, '1');
   };
 };
