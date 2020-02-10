@@ -37,8 +37,11 @@ window.onload = function() {
   chat = new ChatUI();
 
   var sendButton = document.getElementById('message-send');
-  var text = document.getElementById('message-text').value;
   sendButton.onclick = function() {
+    var text = document.getElementById('message-text').value;
+
     chat.addMessage(text, '1');
+
+    document.getElementById('message-text').value = '';
   };
 };
