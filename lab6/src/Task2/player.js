@@ -5,24 +5,28 @@ function Song(songName, songDuration) {
 
 function PlayerList(songsArray) {
   this.currentTrackId = 0;
-  this.songs = songsArray; // Хранит список песен
+  this.songs = songsArray || []; // Хранит список песен
 
   this.next = function() {
-    this.currentTrackId += 1;
-    if (this.currentTrackId > this.songs.length - 1) {
-      this.currentTrackId = 0;
+    if (this.songs.length > 0) {
+      this.currentTrackId += 1;
+      if (this.currentTrackId > this.songs.length - 1) {
+        this.currentTrackId = 0;
+      }
     }
   };
 
   this.prev = function() {
-    this.currentTrackId -= 1;
-    if (this.currentTrackId < 0) {
-      this.currentTrackId = this.songs.length - 1;
+    if (this.songs.length > 0) {
+      this.currentTrackId -= 1;
+      if (this.currentTrackId < 0) {
+        this.currentTrackId = this.songs.length - 1;
+      }
     }
   };
 
   this.getCurrentTrackName = function() {
-    if (this.songs != null) {
+    if (this.songs === 'object') {
       return this.songs[this.currentTrackId].songName;
     } else {
       return 'Empty List!';
@@ -39,15 +43,21 @@ function Player(playerList) {
   };
 
   this.play = function() {
-    this.status = 'play';
+    if (this.playerList.songs.length > 0) {
+      this.status = 'play';
+    }
   };
 
   this.stop = function() {
-    this.status = 'stop';
+    if (this.playerList.songs.length > 0) {
+      this.status = 'stop';
+    }
   };
 
   this.pause = function() {
-    this.status = 'pause';
+    if (this.playerList.songs.length > 0) {
+      this.status = 'pause';
+    }
   };
 
   this.next = function() {
@@ -59,7 +69,7 @@ function Player(playerList) {
   };
 }
 
-// var player = new Player([new Song("Edvard Grieg - Peer Gynt Suite", 102), new Song("Ludwig van Beethoven - Symphony No. 5", 130), new Song("Samuel Barber - Adagio for Strings", 130)]);
+// var player = new Player([new Song('Edvard Grieg - Peer Gynt Suite', 102), new Song('Ludwig van Beethoven - Symphony No. 5', 130), new Song('Samuel Barber - Adagio for Strings', 130)]);
 var player = new Player();
 
 document.getElementById('nextbtn').onclick = function() {
